@@ -1,0 +1,16 @@
+﻿@using NewYearPartyInvitation.Models.Entities
+@{
+    ViewBag.Title = "Thanks";
+    GuestInfo GuestInfo = ViewBag.Guest;
+}
+
+<br />
+<div class="jumbotron">
+    <h2>Thanks @GuestInfo.Name for Registering !!</h2>
+    @if (GuestInfo.CovidTestStatus.Equals("positive"))
+    {
+        <h4 class="text-danger">Sorry You Are Not Allowed In Party !!</h4>
+    }
+</div>
+
+

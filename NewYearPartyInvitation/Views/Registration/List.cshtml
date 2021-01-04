@@ -1,0 +1,41 @@
+﻿@using NewYearPartyInvitation.Models.Entities
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Guest List</h2>
+<hr />
+
+@{ 
+    List<GuestInfo> GuestList = ViewBag.GuestList;
+}
+<table class="table">
+
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email Address</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">Age</th>
+            <th scope="col">Covid Status</th>
+        </tr>
+    </thead>
+
+    @foreach (GuestInfo guest in GuestList)
+    {
+        <tr>
+            <td>@guest.Name</td>
+            <td>@guest.Email</td>
+            <td>@guest.Mobile</td>
+            <td>@guest.Age</td>
+            @if (@guest.CovidTestStatus.Equals("positive"))
+            {
+                <td class="text-danger">@guest.CovidTestStatus</td>
+            }
+            else{
+                <td class="text-success">@guest.CovidTestStatus</td>
+            }
+        </tr>
+     }
+</table>
+
